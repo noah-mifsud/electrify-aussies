@@ -1,0 +1,69 @@
+.signup-bg {
+    background-color: $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.signup-form {
+    background-color: $white;
+    box-sizing: border-box;
+    height: 90%;
+    padding: 1rem;
+    border-radius: 0 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    & h1 {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    & label {
+        width: 100%;
+    }
+    & input {
+        background-color: $lightGrey;
+        border: none;
+        border-radius: 0 .5em 0 .5em;
+        padding: .5em;
+        box-shadow: .1em .1em .1em $grey;
+        margin-bottom: 1.5em;
+        width: 30em;
+        &:focus {
+            outline: .1em solid $red;
+            
+        }
+    }
+    & button {
+        background-color: $red;
+        border: none;
+        border-radius: 0 .5em 0 .5em;
+        padding: .4em;
+        width: 60%;
+        transition: .2s;
+        &:hover {
+            box-shadow: 0 0 .1em $red;
+            cursor: pointer;
+            background-color: $white;
+            color: $red;
+        }
+        &:disabled {
+            background-color: $redFaded;
+            color: $white;
+        }
+    }
+    & p {
+        width: 100%;
+        text-align: center;
+        & .react-router-link {
+            text-decoration: underline;
+        }
+    }
+    & .error {
+        background-color: $redFaded;
+        padding: .2em;
+        border-radius: 1em;
+        color: $fontBlack;
+        width: 60%;
+    }
+}

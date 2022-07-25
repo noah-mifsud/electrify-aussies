@@ -33,17 +33,18 @@ function Signup() {
     }
 
   return (
-    <main>
-        <form onSubmit={handleSubmit}>
-            {error && <p>Error: {error}</p>}
-            <label htmlFor="email">Email</label>
-            <input type="text" id='email' ref={emailRef}/>
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' ref={passwordRef}/>
-            <label htmlFor="passwordConfim">Password Confirmation</label>
-            <input type="password" id='passwordConfim' ref={passwordConfirmRef}/>
-            <button disabled={loading}>Sign Up</button>
-            <p>Already have an account? <Link to='/login'>Sign In</Link></p>
+    <main className='signup-bg'>
+        <form onSubmit={handleSubmit} className='signup-form'>
+            <h1>SIGN UP</h1>
+            {error && <p className='error'>Error: {error}</p>}
+            <label htmlFor="email">Email</label><br/>
+            <input type="text" id='email' ref={emailRef}/><br/>
+            <label htmlFor="password">Password</label><br/>
+            <input type="password" id='password' ref={passwordRef}/><br/>
+            <label htmlFor="passwordConfim">Confirm Password</label><br/>
+            <input type="password" id='passwordConfim' ref={passwordConfirmRef}/><br/>
+            <button disabled={loading}>SIGN UP</button>
+            <p><small>Already have an account? <Link to='/login' className='react-router-link'>LOGIN</Link></small></p>
         </form>
     </main>
   )
