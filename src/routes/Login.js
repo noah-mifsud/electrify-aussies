@@ -27,15 +27,16 @@ function Login() {
     }
 
   return (
-    <main>
-        <form onSubmit={handleSubmit}>
-            {error && <p>Error: {error}</p>}
+    <main className='signup-bg'>
+        <form onSubmit={handleSubmit} className='signup-form'>
+            <h1>LOGIN</h1>
+            {error && <p className='error'>Error: {error}</p>}
             <label htmlFor="email">Email</label>
             <input type="text" id='email' ref={emailRef}/>
             <label htmlFor="password">Password</label>
             <input type="password" id='password' ref={passwordRef}/>
-            <button disabled={loading}>Login</button>
-            <p>Need an account? <Link to='/signup'>Sign Up</Link></p>
+            <button disabled={loading}>LOGIN</button>
+            <p><small>Don't have an account? <Link to='/signup' className='react-router-link'>SIGN UP</Link></small></p>
         </form>
     </main>
   )

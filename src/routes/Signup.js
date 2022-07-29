@@ -1,15 +1,16 @@
 //Global imports
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //Local imports
 import { useAuth } from '../contexts/AuthContext';
 
 function Signup() {
     const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    let navigate = useNavigate();
+    const passwordRef = useRef();
+    const passwordConfirmRef = useRef();
     const { signup } = useAuth();
 
     async function handleSubmit(e) {
@@ -19,19 +20,22 @@ function Signup() {
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError('Passwords do not match!');
         }
+        if (passwordRef.current.value.length < 6) {
+            return setError('Password is too short');
+        }
 
         //If checks passed then try creating account
         try {
             setError('');
             setLoading(true)
             await signup(emailRef.current.value ,passwordRef.current.value);
+            navigate("/", { replace: true });
         //If creating account fails, catch and change error message
         } catch {
             setError('Failed to create an account!');
         }
         setLoading(false)
     }
-
   return (
     <main className='signup-bg'>
         <form onSubmit={handleSubmit} className='signup-form'>

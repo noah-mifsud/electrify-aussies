@@ -1,0 +1,38 @@
+nav {
+    & ul {
+        border-bottom: 1px solid $grey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: .2rem 1.5rem;
+    }
+}
+
+.nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    & .red-text {
+        color: $red;
+    }
+}
+.nav-profile {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.nav-logout {
+    background-color: transparent;
+    color: $fontBlack;
+    height: 1.2rem;
+    width: 1.2rem;
+    padding: .4rem;
+    border-radius: .4rem;
+    transition: .2s;
+    &:hover {
+        cursor: pointer;
+        background-color: $red;
+        color: $white;
+    }
+}
